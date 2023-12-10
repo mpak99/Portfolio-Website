@@ -145,8 +145,11 @@ header {
 }
 
 .logo {
-    max-width: 100px;
+    max-width: 200px;
+    padding-right: 4em;
 }
+
+
 
 .nav {
     position: fixed;
@@ -158,7 +161,7 @@ header {
     right: 0;
     z-index: 100;
 
-    transform: translateX(0%);
+    transform: translateX(100%);
     transition: transform 250ms cubic-bezier(.5, 0, .5, 1); /*similar to ease in and out */
 }
 
@@ -174,7 +177,6 @@ header {
     /* margin and padding are set to 0 to fix issues with alignment */
     margin: 0;
     padding: 0;
-
 }
 
 .nav__link {
@@ -188,6 +190,46 @@ header {
     color: var(--clr-accent);
 }
 
+.nav-toggle {
+    padding: .5em;
+    background: transparent;
+    border: 0;
+    cursor: pointer; /* liitel hand icon */
+    position: absolute;
+    right: 1em;
+    top: 1em;
+    z-index: 1000;
+}
+
+.hamburger {
+
+    display: block; /* because by default it was span */
+    position: relative;
+}
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+    background: var(--clr-dark);
+    width: 2em;
+    height: 3px;
+    border-radius: 1em;
+    transition: transform 250ms ease-in-out;
+
+}
+
+
+
+.hamburger::before,
+.hamburger::after {
+    content: ""; /* psudo elements will not work unless given content */
+    position: absolute;
+    left: 0; /* left and right is set to zero. it will match the width of .hamburger because its position is set to relative */   
+    right: 0;
+
+}
+
+.hamburger::before { top: 6px;}
+.hamburger::after { bottom: 6px;}
 
 
 /* Intro section */
